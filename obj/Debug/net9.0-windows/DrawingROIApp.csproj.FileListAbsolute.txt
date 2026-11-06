@@ -1,0 +1,16 @@
+C:\SourceCode\DrawingROIApp\bin\Debug\net9.0-windows\DrawingROIApp.exe
+C:\SourceCode\DrawingROIApp\bin\Debug\net9.0-windows\DrawingROIApp.deps.json
+C:\SourceCode\DrawingROIApp\bin\Debug\net9.0-windows\DrawingROIApp.runtimeconfig.json
+C:\SourceCode\DrawingROIApp\bin\Debug\net9.0-windows\DrawingROIApp.dll
+C:\SourceCode\DrawingROIApp\bin\Debug\net9.0-windows\DrawingROIApp.pdb
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.Form1.resources
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.csproj.GenerateResource.cache
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.AssemblyInfoInputs.cache
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.AssemblyInfo.cs
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.csproj.CoreCompileInputs.cache
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.dll
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\refint\DrawingROIApp.dll
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.pdb
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\DrawingROIApp.genruntimeconfig.cache
+C:\SourceCode\DrawingROIApp\obj\Debug\net9.0-windows\ref\DrawingROIApp.dll
