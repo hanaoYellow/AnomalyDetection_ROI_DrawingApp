@@ -3,7 +3,7 @@
 カメラ画像上で「検知対象の領域（ROI：Region Of Interest）」を指定・保存する Windows Forms アプリケーションです．
 LED の点灯状態（常時点灯・点滅・消灯）と色を監視して異常を検知するシステムの一部として，検知領域を設定する役割を担います．
 
-![画面のUI](docs/images/ui.png) 
+![画面のUI](docs/images/UI.png) 
 
 ## 背景と目的
 
