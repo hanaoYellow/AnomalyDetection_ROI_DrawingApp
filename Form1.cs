@@ -5,8 +5,25 @@ namespace DrawingROIApp
         // ----------------------------------------------------------------
         // 定数
         // ----------------------------------------------------------------
-        private const string CameraSettingFilePath = @"C:\Monitoring\settings\setting-camera.txt";
-        private const string RoiSaveFolderPath = @"C:\Monitoring\settings\roi\";
+        // プロジェクト直下（DrawingROIApp.csproj と同じ階層）の Data フォルダを参照する。
+        // 実行ファイルの場所から親フォルダをたどって探すため、bin 配下には Data を作らない。
+        private static readonly string DataFolderPath = FindDataFolder();
+
+        private static string FindDataFolder()
+        {
+            var dir = new DirectoryInfo(AppContext.BaseDirectory);
+            while (dir != null)
+            {
+                if (File.Exists(Path.Combine(dir.FullName, "DrawingROIApp.csproj")))
+                    return Path.Combine(dir.FullName, "Data");
+                dir = dir.Parent;
+            }
+            return Path.Combine(AppContext.BaseDirectory, "Data");
+        }
+
+        private static readonly string CameraSettingFilePath = Path.Combine(DataFolderPath, "settings", "setting-camera.txt");
+        private static readonly string RoiSaveFolderPath = Path.Combine(DataFolderPath, "settings", "roi");
+        private static readonly string SampleFolderPath = Path.Combine(DataFolderPath, "sample");
 
         // ----------------------------------------------------------------
         // データクラス
@@ -14,10 +31,10 @@ namespace DrawingROIApp
         private record CameraInfo(string IpAddress, string Label)
         {
             public string ImagePath =>
-                $@"C:\VideoCapture\Capture\Image\Master\average-template_{IpAddress}-4.jpg";
+                Path.Combine(SampleFolderPath, $"average-template_{IpAddress}-4.jpg");
 
             public string MasterDataPath =>
-                $@"C:\VideoCapture\Capture\Image\Master\{IpAddress}_Combined_4.txt";
+                Path.Combine(SampleFolderPath, $"{IpAddress}_Combined_4.txt");
         }
 
         private record RoiEntry(int X, int Y, int W, int H);
@@ -54,6 +71,21 @@ namespace DrawingROIApp
             InitializeComponent();
             SetupDataGridView();
             LoadCameraList();
+
+            // 描画のちらつき防止（PictureBox.DoubleBuffered は protected のためリフレクションで設定）
+            typeof(PictureBox)
+                .GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                ?.SetValue(pictureBox1, true);
+
+            // レイアウト確定後のサイズ変更時にも再描画する
+            pictureBox1.Resize += (_, _) => pictureBox1.Invalidate();
+        }
+
+        // 画像を完全にメモリへ読み込む（遅延デコードによる初回描画の乱れ・ファイルロックを防ぐ）
+        private static Bitmap LoadBitmap(string path)
+        {
+            using var src = new Bitmap(path);
+            return new Bitmap(src);
         }
 
         // ----------------------------------------------------------------
@@ -133,7 +165,7 @@ namespace DrawingROIApp
 
             if (File.Exists(camera.ImagePath))
             {
-                _currentImage = new Bitmap(camera.ImagePath);
+                _currentImage = LoadBitmap(camera.ImagePath);
             }
             else
             {
@@ -456,7 +488,7 @@ namespace DrawingROIApp
             if (dialog.ShowDialog() != DialogResult.OK) return;
 
             _currentImage?.Dispose();
-            _currentImage = new Bitmap(dialog.FileName);
+            _currentImage = LoadBitmap(dialog.FileName);
             _zoomFactor = 1.0f;
             _viewOffset = PointF.Empty;
             pictureBox1.Invalidate();
