@@ -70,7 +70,7 @@ docsにあるROIアプリケーションのマニュアル.pdfを確認してく
 ### 手順
 
 ```
-git clone　https://github.com/hanaoYellow/AnomalyDetection_ROI_DrawingApp.git
+git clone https://github.com/hanaoYellow/AnomalyDetection_ROI_DrawingApp.git
 cd DrawingROIApp
 dotnet run
 ```
