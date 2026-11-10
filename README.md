@@ -71,7 +71,7 @@ docsにあるROIアプリケーションのマニュアル.pdfを確認してく
 
 ```
 git clone https://github.com/hanaoYellow/AnomalyDetection_ROI_DrawingApp.git
-cd DrawingROIApp
+cd AnomalyDetection_ROI_DrawingApp
 dotnet run
 ```
 
