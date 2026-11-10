@@ -5,8 +5,6 @@ namespace DrawingROIApp
         // ----------------------------------------------------------------
         // 定数
         // ----------------------------------------------------------------
-        // プロジェクト直下（DrawingROIApp.csproj と同じ階層）の Data フォルダを参照する。
-        // 実行ファイルの場所から親フォルダをたどって探すため、bin 配下には Data を作らない。
         private static readonly string DataFolderPath = FindDataFolder();
 
         private static string FindDataFolder()
