@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrawingROIApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3465cfab591ab0def3aa3fe251ccec424de8e8dc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2649ff501140f32fe42ae7c88f1b8a3ca38d8910")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrawingROIApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrawingROIApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
